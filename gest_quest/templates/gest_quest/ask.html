@@ -1,0 +1,40 @@
+{% extends 'gest_quest/base.html' %}
+
+
+{% block content %}
+{% include 'gest_quest/head.html' %}
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="bg-white w-full max-w-md p-8 rounded-2xl shadow-lg">
+            <h1 class="text-3xl font-bold text-center text-indigo-700 mb-2">
+            Ask a Question
+            </h1>
+            <p class="text-sm text-gray-600 text-center mb-15">
+            Une question ? Une curiosité ? N'hésitez pas à nous interroger.
+            </p>
+
+            <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="id_author" class="block text-sm font-medium text-gray-700 mb-1">
+                Your Name (optional)
+                </label>
+                {{ form.author }}
+                </label>
+            </div>
+            <div>
+                <label for="id_text" class="block text-sm font-medium text-gray-700 mb-1">
+                Your Question
+                </label>
+                {{ form.text }}
+            </div>
+            <button
+                type="submit"
+                class="w-full bg-indigo-600 text-white font-semibold py-2 rounded-lg
+                       hover:bg-indigo-700 transition duration-200 shadow-md"
+            >
+                Send Question
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
